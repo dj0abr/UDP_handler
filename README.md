@@ -83,3 +83,23 @@ Example:
 unsigned char data[100];
 sendUDP("192.168.0.1",12345,data,100);
 ```
+### simple UDP Server, listening for clients on port 12345
+```
+int socket1;
+int keeprunning = 1;
+
+void rxfunc(uint8_t *pdata, int len , struct sockaddr_in* socket)
+{
+    sendUDP(inet_ntoa(socket->sin_addr,12345,(unsigned char)"OK",2);
+}
+
+int main()
+{
+    while (1)
+    {
+        UdpRxInit(&socket1, 12345, rxfunc, &keeprunning);
+    }
+
+    return 0;
+}
+```
