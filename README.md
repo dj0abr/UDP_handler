@@ -8,6 +8,7 @@ this little program is used to send and receive messages via UDP
 * as many independent UDP port as you need
 * reception: multithreading -> unblocking read !
 * extremly easy to use and to integrate into your software
+* for C and C++
 
 ### Functions
 
@@ -48,8 +49,8 @@ rxfunc(uint8_t *pdata, int len , struct sockaddr_in* socket)
 ### Usage
 
 * copy udp.cpp and udp.h into your source directory and include udp.cpp to your Makefile
-* depending o your OS #define _LINUX_ or _WIN32_
-* at program start call UdpRxInit to initialize an UDP receiver (only if you need an receiver)
+* depending on your OS #define _LINUX_ or #define _WIN32_
+* at program start call UdpRxInit to initialize one or multiple UDP receivers (only if you need an receiver)
 
 Example:
 ```
@@ -68,13 +69,13 @@ void rxfunc1(uint8_t *pdata, int len , struct sockaddr_in* socket)
     printf("Received %d Bytes from IP: %s\n",len,inet_ntoa(socket->sin_addr);
     for(int i=0; i<len; i++) printf("Byte %d = %02X\n",i,pdata[i]);
 }
-```
+
 void rxfunc2(uint8_t *pdata, int len , struct sockaddr_in* socket)
 {
     printf("Received %d Bytes from IP: %s\n",len,inet_ntoa(socket->sin_addr);
     for(int i=0; i<len; i++) printf("Byte %d = %02X\n",i,pdata[i]);
 }
-
+```
 * to send an UDP message, just call sendUDP
 
 Example:
