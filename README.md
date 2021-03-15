@@ -95,9 +95,33 @@ void rxfunc(uint8_t *pdata, int len , struct sockaddr_in* socket)
 
 int main()
 {
+    UdpRxInit(&socket1, 12345, rxfunc, &keeprunning);
     while (1)
     {
-        UdpRxInit(&socket1, 12345, rxfunc, &keeprunning);
+        // do whatever you need to do
+        sleep(1);
+    }
+
+    return 0;
+}
+```
+### simple UDP Client, sending a message to a server every second
+```
+int socket1;
+int keeprunning = 1;
+
+void rxfunc(uint8_t *pdata, int len , struct sockaddr_in* socket)
+{
+    printf("Answer from server received\n");
+}
+
+int main()
+{
+    UdpRxInit(&socket1, 12345, rxfunc, &keeprunning);
+    while (1)
+    {
+        sendUDP("192.168.0.1",12345,(unsigned char)"Hello",5);
+        sleep(1);
     }
 
     return 0;
