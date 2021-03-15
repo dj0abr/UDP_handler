@@ -26,10 +26,10 @@ void sendUDP(char *destIP, int destPort, uint8_t *pdata, int len);
 
 send an UDP message
 
-destIP ... IP address of the destination
-destPort ... port number of the destination
-pdata ... pointer to a byte array holding the message
-len ... length of the message
+ - destIP ... IP address of the destination
+ - destPort ... port number of the destination
+ - pdata ... pointer to a byte array holding the message
+ - len ... length of the message
 
 -------
 
@@ -39,9 +39,9 @@ For each UDP receiving port a separate callback function is required
 
 rxfunc(uint8_t *pdata, int len , struct sockaddr_in* socket)
 
-pdata ... pointer to a byte array holding the received message
-len ... length of the message
-socket ... a sockaddr_in structure holding information of the sender
+ - pdata ... pointer to a byte array holding the received message
+ - len ... length of the message
+ - socket ... a sockaddr_in structure holding information of the sender
 
 ------
 
