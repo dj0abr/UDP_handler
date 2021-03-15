@@ -15,10 +15,10 @@ void UdpRxInit(int *sock, int port, void (*rxfunc)(uint8_t *, int, struct sockad
 
 called to initialize an UDP receiver
 
-sock ... a pointer to an int variable. Gets the socket reference.\\
-port ... the UDP port number
-rxfunc ... when an UDP message is received this callback function will be called (user provided function, see below)
-keeprunning ... a pointer to an int variable. Init this variable with 1. When you want to exit the UDP threads, set it to 0 (i.e. at program end)
+ - sock ... a pointer to an int variable. Gets the socket reference.
+ - port ... the UDP port number
+ - rxfunc ... when an UDP message is received this callback function will be called (user provided function, see below)
+ - keeprunning ... a pointer to an int variable. Init this variable with 1. When you want to exit the UDP threads, set it to 0 (i.e. at program end)
 
 ------
 
