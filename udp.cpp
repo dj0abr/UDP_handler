@@ -1,6 +1,6 @@
 /*
-* High Speed modem to transfer data in a 2,7kHz SSB channel
-* =========================================================
+* UDP RX and TX
+* =============
 * Author: DJ0ABR
 *
 *   (c) DJ0ABR
