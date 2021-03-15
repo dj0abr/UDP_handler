@@ -127,3 +127,4 @@ int main()
     return 0;
 }
 ```
+**Be aware the rxfunc is called by the UDP RX thread. Do not mix variables with other threads !**
