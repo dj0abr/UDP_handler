@@ -2,20 +2,20 @@
 
 this little program is used to send and receive messages via UDP
 
-## Highlights
+### Highlights
 
 * multiple OSs: Linux & Windows
 * as many independent UDP port as you need
 * reception: multithreading -> unblocking read !
 * extremly easy to use and to integrate into your software
 
-## Funktions
+### Functions
 
 void UdpRxInit(int *sock, int port, void (*rxfunc)(uint8_t *, int, struct sockaddr_in*), int *keeprunning);
 
 called to initialize an UDP receiver
 
-sock ... a pointer to an int variable. Gets the socket reference.
+sock ... a pointer to an int variable. Gets the socket reference.\\
 port ... the UDP port number
 rxfunc ... when an UDP message is received this callback function will be called (user provided function, see below)
 keeprunning ... a pointer to an int variable. Init this variable with 1. When you want to exit the UDP threads, set it to 0 (i.e. at program end)
@@ -45,7 +45,7 @@ socket ... a sockaddr_in structure holding information of the sender
 
 ------
 
-## Usage
+### Usage
 
 * copy udp.cpp and udp.h into your source directory and include udp.cpp to your Makefile
 * depending o your OS #define _LINUX_ or _WIN32_
@@ -62,13 +62,13 @@ UdpRxInit(&socket2, 33445, rxfunc2, &keeprunning);
 * write a callback function for all receiving UDP ports, like that:
 
 Example:
-
+```
 void rxfunc1(uint8_t *pdata, int len , struct sockaddr_in* socket)
 {
     printf("Received %d Bytes from IP: %s\n",len,inet_ntoa(socket->sin_addr);
     for(int i=0; i<len; i++) printf("Byte %d = %02X\n",i,pdata[i]);
 }
-
+```
 void rxfunc2(uint8_t *pdata, int len , struct sockaddr_in* socket)
 {
     printf("Received %d Bytes from IP: %s\n",len,inet_ntoa(socket->sin_addr);
@@ -78,6 +78,7 @@ void rxfunc2(uint8_t *pdata, int len , struct sockaddr_in* socket)
 * to send an UDP message, just call sendUDP
 
 Example:
+```
 unsigned char data[100];
 sendUDP("192.168.0.1",12345,data,100);
-
+```
