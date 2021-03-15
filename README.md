@@ -2,14 +2,14 @@
 
 this little program is used to send and receive messages via UDP
 
-# Highlights
+## Highlights
 
 * multiple OSs: Linux & Windows
 * as many independent UDP port as you need
 * reception: multithreading -> unblocking read !
 * extremly easy to use and to integrate into your software
 
-# Funktions
+## Funktions
 
 void UdpRxInit(int *sock, int port, void (*rxfunc)(uint8_t *, int, struct sockaddr_in*), int *keeprunning);
 
@@ -45,20 +45,20 @@ socket ... a sockaddr_in structure holding information of the sender
 
 ------
 
-# Usage
+## Usage
 
 * copy udp.cpp and udp.h into your source directory and include udp.cpp to your Makefile
 * depending o your OS #define _LINUX_ or _WIN32_
 * at program start call UdpRxInit to initialize an UDP receiver (only if you need an receiver)
 
 Example:
-
+```
 int socket1;
 int socket2;
 int keeprunning = 1;
 UdpRxInit(&socket1, 12345, rxfunc1, &keeprunning);
 UdpRxInit(&socket2, 33445, rxfunc2, &keeprunning);
-
+```
 * write a callback function for all receiving UDP ports, like that:
 
 Example:
